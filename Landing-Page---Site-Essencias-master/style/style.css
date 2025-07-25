@@ -1,0 +1,316 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  min-height: 100vh;
+
+  /* Fundo com degradê e imagem */
+  background: linear-gradient(to bottom, #fef8f5, #ffffff),
+              url('../components/images/fundo.png') no-repeat center center / cover;
+  position: relative;
+}
+
+/* Camada branca translúcida sobre a imagem */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: -1;
+}
+
+/* Cabeçalho */
+header {
+  background: #1f1f1f;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Título */
+#title {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1rem;
+}
+
+#title h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+}
+
+#title h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #444;
+  margin-top: 1rem;
+  line-height: 1.4;
+}
+
+#title h2 p {
+  font-size: 1.2rem;
+  color: #666;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* Navegação */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ffd700;
+}
+
+/*  Conteúdo principal  */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+aside {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  padding: 2rem;
+}
+
+aside h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+aside p {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/*  Formulário com label flutuante  */
+.campo {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.campo input {
+  width: 100%;
+  padding: 1rem 0.5rem 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  background-color: #fff;
+}
+
+.campo input::placeholder {
+  color: #aaa;
+  font-style: italic;
+  opacity: 1;
+}
+
+.campo label {
+  position: absolute;
+  top: 1rem;
+  left: 0.6rem;
+  color: #888;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background: white;
+  padding: 0 5px;
+}
+
+.campo input:focus + label,
+.campo input:not(:placeholder-shown) + label {
+  top: -0.6rem;
+  left: 0.5rem;
+  font-size: 0.8rem;
+  color: #5d4037;
+}
+
+/*  Botões refinados  */
+input[type="submit"],
+.btn {
+  background-color: #5d4037;
+  color: white;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover,
+.btn:hover {
+  background-color: #3e2723;
+}
+
+/* Botão específico do carrinho */
+.btn.carrinho {
+  background-color: #d4af37;
+  color: white;
+}
+
+.btn.carrinho:hover {
+  background-color: #b5942f;
+}
+
+/* Botões sociais */
+.social-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn.whatsapp:hover {
+  background-color: #1ebe5b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+.btn.instagram:hover {
+  background-color: #ee4d85;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+/*Limpar texto dentro dos botões  */
+.btn {
+  text-decoration: none !important;
+  font-weight: 600;
+}
+
+.btn * {
+  text-decoration: none !important;
+  font-weight: inherit;
+}
+
+
+
+/* Painel do Carrinho */
+#painel-carrinho {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -3px 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+}
+
+#painel-carrinho.ativo {
+  right: 0;
+}
+
+.conteudo-carrinho {
+  padding: 20px;
+}
+
+.fechar-carrinho {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/*  Responsivo para mobile  */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  aside {
+    width: 100%;
+    text-align: center;
+  }
+
+  form input,
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #painel-carrinho {
+    width: 100%;
+  }
+
+  .fechar-carrinho {
+    font-size: 2rem;
+    top: 15px;
+    right: 20px;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.5rem;
+  }
+
+  body {
+    background-size: contain;
+    background-position: center top;
+  }
+}

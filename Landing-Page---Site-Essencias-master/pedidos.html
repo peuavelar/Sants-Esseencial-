@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essencias drinho</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <header>
+    <h1>Meus Pedidos</h1>
+    <h2>
+      <button class="btn carrinho" onclick="abrirCarrinho()">
+        <i class="fas fa-shopping-cart"></i> Ver carrinho
+      </button>
+    </h2>
+    <nav>
+      <a href="index.html">← Voltar à Página Inicial</a>
+    </nav>
+  </header>
+
+  <main>
+    <div id="painel-carrinho">
+      <div class="conteudo-carrinho">
+        <h3>Seu Carrinho</h3>
+        <button onclick="fecharCarrinho()" class="fechar-carrinho">✖</button>
+        <ul id="lista-carrinho"></ul>
+      </div>
+    </div>
+
+    
+  </main>
+
+  
+</body>
+
+
+<script>
+  let carrinho = [];
+
+  function abrirCarrinho() {
+  const painel = document.getElementById("painel-carrinho");
+  painel.classList.add("ativo"); 
+  renderizarCarrinho(); 
+  }
+
+  function  fecharCarrinho() {
+  const painel =  document.getElementById("painel-carrinho");
+  painel.classList.remove("ativo");  
+  }
+
+  
+  function  adicionarItem() {
+  carrinho.push(nome);
+  renderizarCarrinho();   
+  }
+
+  function removerItem(index){
+  carrinho.splice(index, 1);
+  renderizarCarrinho();
+  }
+
+  function renderizarCarrinho(){
+    const  ul = document.getElementById("lista-carrinho");
+    ul.innerHTML = "";
+  
+  
+  const total =  document.getElementById("total-itens"); 
+  total.textContent = `Você tem ${carrinho.length} item(s) no carrinho` ; 
+
+  if (carrinho.length === 0 ){
+    ul.innerHTML =  "<li>Seu carrinho está vazio.</li>";
+    return; 
+  }
+
+
+  carrinho.forEach((item, index) => {
+    const li = document.createElement("li");
+    
+    const btn = document.createElement("button");
+      btn.textContent = "❌";
+      btn.style.marginLeft = "10px";
+      btn.style.cursor = "pointer";
+      btn.style.background = "transparent";
+      btn.style.border = "none";
+      btn.style.fontSize = "1rem";
+      btn.onclick = () => removerItem(index);
+    li.appendChild(btn);
+
+    ul.appendChild(li);
+
+  });
+}
+
+  </script>
+
+</html>
