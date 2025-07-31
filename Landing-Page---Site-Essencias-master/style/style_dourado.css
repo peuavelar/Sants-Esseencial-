@@ -1,0 +1,414 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #F5F5F5;
+  min-height: 100vh;
+  background-color: #0D0D0D;
+  position: relative;
+}
+
+#logo-sants {
+  position: absolute;
+  top: 1rem;
+  left: 1.5rem;
+  z-index: 1000;
+}
+
+#logo-sants img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: brightness(1.1) contrast(1.2);
+}
+
+header {
+  background: #000;
+  color: #C8A552;
+  padding: 2rem 1rem;
+  position: relative;
+}
+
+#title {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 1rem;
+}
+
+#title h1 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #C8A552;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  display: inline-block;
+}
+
+#title h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #F5F5F5;
+  margin-top: 1rem;
+  line-height: 1.4;
+}
+
+#title h2 p {
+  font-size: 1.2rem;
+  color: #C8A552;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  padding-left: 50px; /* deixa o menu mais para a direita */ 
+  margin-top: 4rem;  /* afasta do topo */
+  flex-wrap: wrap;
+
+}
+
+
+nav ul li a {
+  text-decoration: none;
+  color: #C8A552;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #F5F5F5;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 1rem;
+  width: 100%;
+  background-color: #1a1a1a;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+aside {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+  padding: 2rem;
+}
+
+aside h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #C8A552;
+}
+
+aside p {
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #F5F5F5;
+}
+
+.campo {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.campo input {
+  width: 100%;
+  padding: 1rem 0.5rem 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #C8A552;
+  border-radius: 5px;
+  outline: none;
+  background-color: #0D0D0D;
+  color: #F5F5F5;
+}
+
+.campo input::placeholder {
+  color: #aaa;
+  font-style: italic;
+  opacity: 1;
+}
+
+.campo label {
+  position: absolute;
+  top: 1rem;
+  left: 0.6rem;
+  color: #888;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background: #0D0D0D;
+  padding: 0 5px;
+}
+
+.campo input:focus + label,
+.campo input:not(:placeholder-shown) + label {
+  top: -0.6rem;
+  left: 0.5rem;
+  font-size: 0.8rem;
+  color: #C8A552;
+}
+
+input[type="submit"],
+.btn {
+  background-color: #C8A552;
+  color: #0D0D0D;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover,
+.btn:hover {
+  background-color: #A07C2B;
+}
+
+.btn.carrinho {
+  background-color: #C8A552;
+  color: #0D0D0D;
+}
+
+.btn.carrinho:hover {
+  background-color: #A07C2B;
+}
+
+.social-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn.whatsapp:hover {
+  background-color: #1ebe5b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+.btn.instagram:hover {
+  background-color: #ee4d85;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+.btn {
+  text-decoration: none !important;
+  font-weight: 600;
+}
+
+.btn * {
+  text-decoration: none !important;
+  font-weight: inherit;
+}
+
+#painel-carrinho {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100vh;
+  background-color: #1a1a1a;
+  box-shadow: -3px 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+  color: #F5F5F5;
+}
+
+#painel-carrinho.ativo {
+  right: 0;
+}
+
+.conteudo-carrinho {
+  padding: 20px;
+}
+
+.fechar-carrinho {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #C8A552;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    padding: 1rem;
+    
+  }
+  
+  @media (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+
+  main {
+    padding: 1.5rem 1rem;
+  }
+
+  input[type="submit"] {
+    font-size: 0.95rem;
+  }
+
+  nav ul {
+    gap: 8px;
+  }
+}
+
+
+  aside {
+    width: 100%;
+    text-align: center;
+  }
+
+  form input,
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #painel-carrinho {
+    width: 100%;
+  }
+
+  .fechar-carrinho {
+    font-size: 2rem;
+    top: 15px;
+    right: 20px;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.5rem;
+  }
+
+  body {
+    background-size: contain;
+    background-position: center top;
+  }
+
+  /* ========== ANIMAÇÕES DE ENTRADA ========== */
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===== Aplica animações nos elementos principais ===== */
+
+main,
+aside,
+section,
+form {
+  animation: slideUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+main {
+  animation-delay: 0.1s;
+}
+
+aside,
+section {
+  animation-delay: 0.2s;
+}
+
+form {
+  animation-delay: 0.4s;
+}
+
+aside h1,
+aside h2,
+section h1,
+section h2 {
+  animation: slideLeft 0.6s ease forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+aside p,
+section p {
+  animation: fadeIn 0.6s ease forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+
+form .campo,
+form input,
+form label,
+input[type="submit"],
+.btn {
+  animation: fadeIn 0.6s ease forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+}
+
+
+  
+}

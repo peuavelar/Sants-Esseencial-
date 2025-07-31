@@ -7,63 +7,24 @@
     <title>Essencias do drinho</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style_dourado.css">
 </head>
 <body>
 
-    <header id="inicio">
-        <div id ="title">
-            <h1>Essências</h1>
-            <h2>Quanto custa para andar cheiroso? 
-                <p>Participe da pré-venda se inscrevendo abaixo</p>
-            </h2>
-        </div>
+    <header>
+  <div id="logo-sants">
+    <img src="components/images/logo-sants.png.jpeg" alt="logo-sants Essencial">
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
+      <li><a href="pedidos.html">Pedidos</a></li>
+      <li><a href="avaliacoes.html">Avaliações</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="login.html">Já tem uma conta?</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <nav>
-         <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#cadastro">Cadastro</a></li>
-            <li><a href="pedidos.html">Pedidos</a></li>
-            <li><a href="contato.html">Contato</a></li>
-            <li><a href="login.html">Já tem uma conta?</a></li>
-         </ul>
-    </nav>
-    </header>
-
-    <main>
-        <aside id="cadastro">
-            <h2>Acesse agora nosso formulário de avaliação</h2>
-            <p>Seja bem vindo a nossa página de essências, para iniciar a avaliação, por gentileza insira seu nome e e-mail abaixo:
-
-            </p>
-            <form id="formulario" onsubmit="return redirecionarFormulario()">
-
-                <div class="campo">
-                 <input type="text" id="nome" name="nome" required placeholder=" ">
-                 <label for="nome">Insira seu nome</label>
-                </div>
-
-                <div class="campo">
-                 <input type="email" id="email" name="e-mail" required placeholder=" ">
-                 <label for="email">Insira seu e-mail</label>
-                </div>
-
-                <input type="submit" value="Enviar" >
-            </form>
-        </aside>
-
-
-        <script>
-            function redirecionarFormulario(){
-                const nome = document.getElementById("nome").value;
-                const email = document.getElementById("email").value;
-                window.location.href = "https://forms.gle/6qDk7GYaN5yyU1w98";
-
-                return false;
-            }
-        </script>
-       
     
-
-</body>
-</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sans Essencial - Avaliações</title>
+  <link rel="stylesheet" href="style/style_dourado.css" />
+  <link rel="icon" href="components/images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div id="logo-sants">
+      <img src="components/images/logo-sants.png.jpeg" alt="Sans Essencial" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+        <li><a href="pedidos.html">Pedidos</a></li>
+        <li><a href="avaliacoes.html">Avaliações</a></li>
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="login.html">Já tem uma conta?</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Conteúdo principal -->
+  <main class="container">
+    <section class="form-box">
+      <h2>Avalie sua experiência</h2>
+      <p>Insira seu nome e e-mail para acessar o formulário de avaliação.</p>
+
+      <form id="formulario" onsubmit="return redirecionarFormulario()">
+        <div class="campo">
+          <input type="text" id="nome" name="nome" required placeholder=" " />
+          <label for="nome">Seu nome</label>
+        </div>
+
+        <div class="campo">
+          <input type="email" id="email" name="email" required placeholder=" " />
+          <label for="email">Seu e-mail</label>
+        </div>
+
+        <input type="submit" value="Acessar Avaliação" class="btn-submit" />
+      </form>
+    </section>
+  </main>
+
+  <!-- Script -->
+  <script>
+    function redirecionarFormulario() {
+      const nome = document.getElementById("nome").value.trim();
+      const email = document.getElementById("email").value.trim();
+
+      if (!nome || !email) {
+        alert("Por favor, preencha todos os campos.");
+        return false;
+      }
+
+      window.location.href = "https://forms.gle/6qDk7GYaN5yyU1w98";
+      return false;
+    }
+  </script>
+
+</body>
+</html>
