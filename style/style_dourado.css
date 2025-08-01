@@ -72,17 +72,27 @@ header {
   margin-top: 0.5rem;
 }
 
+nav {
+  overflow: hidden;
+}
+
 nav ul {
   list-style: none;
   display: flex;
   justify-content: flex-start;
   gap: 1.5rem;
-  padding-left: 50px; /* deixa o menu mais para a direita */ 
-  margin-top: 4rem;  /* afasta do topo */
-  flex-wrap: wrap;
-
+  padding: 1rem;
+  margin-top: 4rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
+nav ul::-webkit-scrollbar {
+  display: none;
+}
 
 nav ul li a {
   text-decoration: none;
@@ -268,27 +278,7 @@ input[type="submit"]:hover,
   main {
     flex-direction: column;
     padding: 1rem;
-    
   }
-  
-  @media (max-width: 480px) {
-  body {
-    padding: 1rem;
-  }
-
-  main {
-    padding: 1.5rem 1rem;
-  }
-
-  input[type="submit"] {
-    font-size: 0.95rem;
-  }
-
-  nav ul {
-    gap: 8px;
-  }
-}
-
 
   aside {
     width: 100%;
@@ -302,9 +292,17 @@ input[type="submit"]:hover,
   }
 
   nav ul {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 1rem;
+    gap: 1rem;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+
+  nav ul::-webkit-scrollbar {
+    display: none;
   }
 
   #painel-carrinho {
@@ -326,8 +324,7 @@ input[type="submit"]:hover,
     background-size: contain;
     background-position: center top;
   }
-
-  /* ========== ANIMAÇÕES DE ENTRADA ========== */
+}
 
 @keyframes slideUp {
   from {
@@ -359,8 +356,6 @@ input[type="submit"]:hover,
     opacity: 1;
   }
 }
-
-/* ===== Aplica animações nos elementos principais ===== */
 
 main,
 aside,
@@ -407,8 +402,4 @@ input[type="submit"],
   animation: fadeIn 0.6s ease forwards;
   animation-delay: 0.6s;
   opacity: 0;
-}
-
-
-  
 }
